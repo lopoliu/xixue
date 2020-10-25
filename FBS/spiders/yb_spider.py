@@ -8,6 +8,7 @@ import copy
 class YbSpiderSpider(spiders.RedisSpider):
     name = 'yb_spider'
     redis_key = 'yb'
+
     # allowed_domains = ['xxx.com']
     # start_urls = ['http://xxx.com/']
 
@@ -25,6 +26,9 @@ class YbSpiderSpider(spiders.RedisSpider):
                 callback=self.parse_detail,
                 meta={'item': copy.deepcopy(item)}
             )
+        next_page = response.xpath('//div[@class="pager"]/a[@class="next"]/@href').extarct_first()
+        if next_page:
+            yield scrapy.Request('http://www.yiban.cn' + next_page, callback=self.parse)
 
     def parse_detail(self, response):
         item = response.meta.get('item')

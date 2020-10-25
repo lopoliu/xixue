@@ -21,7 +21,7 @@ NEWSPIDER_MODULE = 'FBS.spiders'
 ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 4
+CONCURRENT_REQUESTS = 1
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -90,7 +90,7 @@ ITEM_PIPELINES = {
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # REDIS 服务链接配置
-REDIS_HOST = '127.0.0.1'
+REDIS_HOST = '192.168.0.111'
 REDIS_PORT = 6379
 REDIS_ENCODING = 'utf-8'
 # REDIS_PARAMS = {'password': ''}
