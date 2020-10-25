@@ -6,6 +6,11 @@ class SlaveSpider(RedisSpider):
     name = 'slave'
     redis_key = 'fbs:urls'
 
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'FBS.pipelines.SlavePipelines': 400
+        }
+    }
 
     def parse(self, response):
         item = SlaveItem()

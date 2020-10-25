@@ -104,4 +104,5 @@ SCHEDULER_PERSIST = True
 # 使用scrapy-redis调度器
 SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
 
+# 使用集合
 REDIS_START_URLS_AS_SET = True
