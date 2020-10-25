@@ -66,6 +66,7 @@ DOWNLOAD_DELAY = 0.5
 ITEM_PIPELINES = {
     # 'FBS.pipelines.FbsPipeline': 300,
     # 'scrapy_redis.pipelines.RedisPipeline': 400
+    # 'FBS.pipelines.MasterPipelines': 400
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -103,3 +104,4 @@ SCHEDULER_PERSIST = True
 # 使用scrapy-redis调度器
 SCHEDULER = 'scrapy_redis.scheduler.Scheduler'
 
+REDIS_START_URLS_AS_SET = True

@@ -14,3 +14,13 @@ class FbsItem(scrapy.Item):
     title = scrapy.Field()
     addr = scrapy.Field()
     number = scrapy.Field()
+
+
+class MasterItem(scrapy.Item):
+    url = scrapy.Field()
+
+
+class SlaveItem(scrapy.Item):
+    addr = scrapy.Field()
+    title = scrapy.Field()
+    number = scrapy.Field()

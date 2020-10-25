@@ -6,7 +6,7 @@
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-
+from FBS.items import SlaveItem
 
 class FbsSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -69,6 +69,13 @@ class FbsDownloaderMiddleware(object):
         return s
 
     def process_request(self, request, spider):
+        # 解析请求
+        item = SlaveItem()
+        url_format = request.url.split('|')
+        if len(url_format) == 2:
+            request.url = url_format[0]
+            item['addr'] = url_format[-1]
+            request.meta['item'] = item
         # Called for each request that goes through the downloader
         # middleware.
 
