@@ -26,7 +26,7 @@ class YbSpiderSpider(spiders.RedisSpider):
                 callback=self.parse_detail,
                 meta={'item': copy.deepcopy(item)}
             )
-        next_page = response.xpath('//div[@class="pager"]/a[@class="next"]/@href').extarct_first()
+        next_page = response.xpath('//div[@class="pager"]/a[@class="next"]/@href').extract_first()
         if next_page:
             yield scrapy.Request('http://www.yiban.cn' + next_page, callback=self.parse)
 
