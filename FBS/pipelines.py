@@ -34,7 +34,6 @@ class SlavePipelines(object):
         info = dict(
             title=item['title'],
             number=item['number'],
-            addr=item['addr']
         )
         self.tab.insert_one(info)
 

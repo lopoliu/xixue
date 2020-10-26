@@ -38,9 +38,6 @@ class FbsSpiderMiddleware(object):
 class ParseUrlParams(object):
     def process_request(self, request, spider):
         # 解析请求
-        item = SlaveItem()
-        item['addr'] = spider.addr
-        request.meta['item'] = item
         return None
 
     def process_response(self, request, response, spider):

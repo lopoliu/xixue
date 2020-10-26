@@ -16,7 +16,7 @@ class SlaveSpider(RedisSpider):
     }
 
     def parse(self, response):
-        item = response.meta['item']
+        item = SlaveItem()
         title = response.xpath('//h2/text()').extract_first()
         number = response.xpath('//span[@class="member-number"]/text()').extract_first()
         item['title'] = title

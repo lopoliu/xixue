@@ -21,6 +21,5 @@ class MasterItem(scrapy.Item):
 
 
 class SlaveItem(scrapy.Item):
-    addr = scrapy.Field()
     title = scrapy.Field()
     number = scrapy.Field()

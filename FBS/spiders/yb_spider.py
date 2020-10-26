@@ -17,10 +17,8 @@ class YbSpiderSpider(spiders.RedisSpider):
 
     def parse(self, response):
         urls = response.xpath('//strong/a/@href').extract()
-        addr = response.xpath("//span[@class='location']/text()").extract()
         for i, url in enumerate(urls):
             item = FbsItem()
-            item['addr'] = addr[i]
             yield scrapy.Request(
                 'http://www.yiban.cn' + url,
                 callback=self.parse_detail,
