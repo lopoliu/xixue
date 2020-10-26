@@ -33,7 +33,8 @@ class SlavePipelines(object):
     def process_item(self, item, spider):
         info = dict(
             title=item['title'],
-            number=item['number']
+            number=item['number'],
+            addr=item['addr']
         )
         self.tab.insert_one(info)
 

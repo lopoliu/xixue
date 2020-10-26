@@ -21,11 +21,9 @@ class MasterSpider(scrapy.Spider):
 
     def parse(self, response):
         urls = response.xpath('//strong/a/@href').extract()
-        # addr = response.xpath("//span[@class='location']/text()").extract()
         for i, url in enumerate(urls):
             item = MasterItem()
             item['url'] = "http://www.yiban.cn" + url
-            # item['url'] = "http://www.yiban.cn" + url + '|' + addr[i]
             yield item
         next_page = response.xpath('//div[@class="pager"]/a[@class="next"]/@href').extract_first()
         if next_page:

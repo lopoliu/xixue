@@ -8,12 +8,15 @@ class SlaveSpider(RedisSpider):
 
     custom_settings = {
         'ITEM_PIPELINES': {
-            'FBS.pipelines.SlavePipelines': 400
+            'FBS.pipelines.SlavePipelines': 400,
+        },
+        'DOWNLOADER_MIDDLEWARES': {
+            'FBS.middlewares.ParseUrlParams': 300
         }
     }
 
     def parse(self, response):
-        item = SlaveItem()
+        item = response.meta['item']
         title = response.xpath('//h2/text()').extract_first()
         number = response.xpath('//span[@class="member-number"]/text()').extract_first()
         item['title'] = title
